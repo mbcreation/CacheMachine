@@ -5,19 +5,23 @@ if($_SERVER['REMOTE_ADDR'] != 'IP SERVEUR' && $_SERVER['REQUEST_METHOD'] == 'GET
 
 	// For local developpment you can replace REMOTE_ADDR condition by isset($_SERVER['HTTP_USER_AGENT'])
 
+	$path = filter_var($_SERVER['REQUEST_URI'],FILTER_SANITIZE_URL);
+
 	$cachefolder = "cache";
-	$uri = explode('/',rtrim($_SERVER['REQUEST_URI'],'/'));
+
+	$uri = explode('/',rtrim($path,'/'));
+	
 	$flaturl = end($uri);
 	
 	// Handle archives
 
-	if(is_numeric($flaturl)) $flaturl = str_replace('/','-',trim($_SERVER['REQUEST_URI'],'/'));
+	if(is_numeric($flaturl)) $flaturl = str_replace('/','-',trim($path,'/'));
 
 	if($flaturl == '') $flaturl = 'home';
 
 		if(!file_exists($cachefolder.'/'.$flaturl)){
           
-		$data = file_get_contents('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+		$data = file_get_contents('http://'.$_SERVER['HTTP_HOST'].$path);
 		$response = $http_response_header[0];
 
 		// OR 'HTTP/1.1 200 OK' depends on your server.
