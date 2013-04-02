@@ -3,6 +3,7 @@
 
 if($_SERVER['REMOTE_ADDR'] != 'IP SERVEUR' && $_SERVER['REQUEST_METHOD'] == 'GET' && empty($_GET) && null === $cookie = $_COOKIE['wordpress_logged_in_'.md5('http://'.$_SERVER['HTTP_HOST'])]){
 
+	// for local developpment you can replace REMOTE_ADDR condition by isset($_SERVER['HTTP_USER_AGENT'])
 
 	$cachefolder = "cache";
 	$uri = explode('/',rtrim($_SERVER['REQUEST_URI'],'/'));
