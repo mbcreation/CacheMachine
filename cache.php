@@ -5,8 +5,8 @@ if($_SERVER['REMOTE_ADDR'] != 'IP SERVEUR' && $_SERVER['REQUEST_METHOD'] == 'GET
 
 
 	$cachefolder = "cache";
-	
-	$flaturl = end(explode('/',rtrim($_SERVER['REQUEST_URI'],'/')));
+	$uri = explode('/',rtrim($_SERVER['REQUEST_URI'],'/'));
+	$flaturl = end($uri);
 	
 	if($flaturl == '') $flaturl = 'home';
 
