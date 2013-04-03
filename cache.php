@@ -1,7 +1,7 @@
 <?php
 
 
-if($_SERVER['REMOTE_ADDR'] != 'IP SERVEUR' && $_SERVER['REQUEST_METHOD'] == 'GET' && empty($_GET) && null === $cookie = $_COOKIE['wordpress_logged_in_'.md5('http://'.$_SERVER['HTTP_HOST'])]){
+if($_SERVER['REMOTE_ADDR'] != 'SERVER_IP' && $_SERVER['REQUEST_METHOD'] == 'GET' && empty($_GET) && null === $cookie = $_COOKIE['wordpress_logged_in_'.md5('http://'.$_SERVER['HTTP_HOST'])]){
 
 	// For local developpment you can replace REMOTE_ADDR condition by isset($_SERVER['HTTP_USER_AGENT'])
 
