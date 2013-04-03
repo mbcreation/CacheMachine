@@ -9,6 +9,9 @@ if($_SERVER['REMOTE_ADDR'] != 'IP SERVEUR' && $_SERVER['REQUEST_METHOD'] == 'GET
 
 	$cachefolder = "cache";
 
+	// Folder creation
+	if( !is_dir( $cachefolder ) ) mkdir( $cachefolder, 755 );
+
 	$uri = explode('/',rtrim($path,'/'));
 	
 	$flaturl = end($uri);
