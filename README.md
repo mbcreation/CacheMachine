@@ -19,7 +19,7 @@ Depending of your webserver configuration/system you might need to change two li
 
 1 - Line 4, the REMOTE ADDR condition ($_SERVER['REMOTE_ADDR'] != 'SERVER_IP') is to prevent the script to loop on himself. But there is chance it will not work locally. As a replacement you can try replace that condition by this one isset($_SERVER['HTTP_USER_AGENT']).
 
-2 - Line 33, if the script doesn't work, you'll have to replace de response header test condition with this one HTTP/1.1 200 OK.
+2 - Line 33, if the script doesn't work, you'll have to replace the response header test condition with this one HTTP/1.1 200 OK.
 
 
 Filters and hooks
